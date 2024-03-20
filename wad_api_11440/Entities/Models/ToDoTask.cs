@@ -1,6 +1,6 @@
-namespace Entities;
+namespace Entities11440;
 
-public class Task
+public class ToDoTask
 {
     public int Id { get; set; }
     public required string Title { get; set; }

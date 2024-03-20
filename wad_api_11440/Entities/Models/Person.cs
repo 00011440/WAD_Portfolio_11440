@@ -1,4 +1,4 @@
-namespace Entities;
+namespace Entities11440;
 
 public class Person
 {
