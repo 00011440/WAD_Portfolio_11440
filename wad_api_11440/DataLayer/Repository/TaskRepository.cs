@@ -20,7 +20,7 @@ namespace DAL11440.Repository
             var person = await _context.People.FirstOrDefaultAsync(p => entity.PersonId == p.Id);
 
             if (person == null)
-                throw new NullReferenceException(nameof(person));
+                throw new NullReferenceException();
 
             var task = new ToDoTask()
             {
@@ -30,6 +30,7 @@ namespace DAL11440.Repository
             };
 
             _context.Tasks.Add(task);
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteById(int id)
@@ -37,7 +38,7 @@ namespace DAL11440.Repository
             var task = await GetById(id);
             if (task == null)
             {
-                throw new NullReferenceException(nameof(task));
+                throw new NullReferenceException();
             }
 
             _context.Tasks.Remove(task);
@@ -46,12 +47,12 @@ namespace DAL11440.Repository
 
         public async Task<IEnumerable<ToDoTask>> GetAll()
         {
-            return await _context.Tasks.ToListAsync();
+            return await _context.Tasks.Include(t => t.Person).ToListAsync();
         }
 
         public async Task<ToDoTask?> GetById(int id)
         {
-            return await _context.Tasks.FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Tasks.Include(t => t.Person).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<ToDoTask> UpdateById(int id, TaskDTO entity)

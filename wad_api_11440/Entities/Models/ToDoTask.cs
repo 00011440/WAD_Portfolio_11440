@@ -1,4 +1,4 @@
-namespace Entities11440;
+namespace Models;
 
 public class ToDoTask
 {

@@ -26,7 +26,7 @@ namespace DAL11440.Repository
             var person = await GetById(id);
             if (person == null)
             {
-                throw new NullReferenceException(nameof(person));
+                throw new NullReferenceException();
             }
             _context.People.Remove(person);
             await _context.SaveChangesAsync();
@@ -47,7 +47,7 @@ namespace DAL11440.Repository
             var person = await GetById(id);
             if(person == null)
             {
-                throw new NullReferenceException(nameof(person));
+                throw new NullReferenceException();
             }
 
             _context.Entry(person).State = EntityState.Modified;

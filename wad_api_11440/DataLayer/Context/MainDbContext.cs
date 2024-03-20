@@ -1,5 +1,5 @@
-﻿using Entities11440;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Models;
 
 namespace DAL11440.Context
 {
