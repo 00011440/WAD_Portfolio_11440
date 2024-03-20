@@ -1,0 +1,11 @@
+<form (ngSubmit)="create(); $event.preventDefault()">
+    <label for="title">Title</label>
+    <input name="title" [(ngModel)]="task.title" required/>
+    <label for="description">Description</label>
+    <textarea name="description" [(ngModel)]="task.description" required></textarea>
+    <label for="person">Person</label>
+    <select class="form-control" id="personId" name="personId" [(ngModel)]="task.personId">
+        <option *ngFor="let person of people" [ngValue]="person.id">{{person.firstName}} {{person.lastName}}</option>
+    </select>
+    <button priority="submit">Submit</button>
+</form>

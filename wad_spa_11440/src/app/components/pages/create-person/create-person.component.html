@@ -1,0 +1,7 @@
+<form (ngSubmit)="create(); $event.preventDefault()">
+    <label for="firstName">First name</label>
+    <input name="firstName" [(ngModel)]="person.firstName" required/>
+    <label for="lastName">Last name</label>
+    <input name="lastName" [(ngModel)]="person.lastName" required/>
+    <button priority="submit">Submit</button>
+</form>

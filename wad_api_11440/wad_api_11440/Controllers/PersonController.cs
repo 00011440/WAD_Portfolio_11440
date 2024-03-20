@@ -23,7 +23,7 @@ namespace API11440.Controllers
             return Ok(await _repository.GetAll());
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetPersonById(int id)
         {
             var person = await _repository.GetById(id);
@@ -50,7 +50,7 @@ namespace API11440.Controllers
             }
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> EditPerson(int id, PersonDTO person)
         {
             try
@@ -67,7 +67,7 @@ namespace API11440.Controllers
             }
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePerson(int id)
         {
             try
